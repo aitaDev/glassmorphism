@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <img
+      src="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      alt="abstractbg"
+    />
+    <div class="circle"></div>
+
+    <div class="container" id="glass">
+      <h2 class="seq">Hello everyone</h2>
+      <p class="seq">Lets go ahead and get this show on the road.</p>
+    </div>
+    <h1>Glassmophism Realized</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <script>
+      const glass = document.getElementById("glass");
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.inOut", duration: 1.5 },
+      });
+
+      tl.from("img", { x: "-10%", opacity: 0 })
+        .from(".container", { opacity: 0, delay: 0.5, duration: 1 }, "-=1.5")
+        .from(".container", { x: "-20%", backdropFilter: "blur(0px)" })
+        .from(
+          ".seq",
+          { y: -30, opacity: 0, stagger: 0.2, duration: 0.5 },
+          "-=.5"
+        )
+        .from("h1", { y: 20, clipPath: "inset(0 0 100% 0)" }, "-=.8");
+    </script>
+  </body>
+</html>
